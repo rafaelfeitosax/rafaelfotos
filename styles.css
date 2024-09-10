@@ -1,0 +1,65 @@
+body {
+    background-color: #201d1d;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Remove rolagem da página */
+}
+
+.carousel {
+    position: relative;
+    width: 100vw; /* 100% da largura da viewport */
+    height: 100vh; /* 100% da altura da viewport */
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    width: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%; /* Altura total */
+    box-sizing: border-box;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta o tamanho da imagem */
+    display: block;
+    opacity: 0; /* Imagem invisível inicialmente */
+    transform: translateY(100%); /* Começa fora da tela */
+    transition: opacity 1s ease, transform 1s ease; /* Animação */
+}
+
+.slide.show img {
+    opacity: 1; /* Torna a imagem visível */
+    transform: translateY(0); /* Move a imagem para a posição original */
+}
+
+.indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.indicator {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+}
+
+.indicator.active {
+    background-color: #717171;
+}
